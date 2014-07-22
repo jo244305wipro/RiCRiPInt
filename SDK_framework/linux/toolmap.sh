@@ -1,7 +1,7 @@
 #!/bin/sh
 # Define environment variables used by Harlequin Embedded SDK make files
 CV_DOXYGEN_1_6_2=/mnt/hgfs/test/RiCRiPInt/SDK_framework/linux/CV_variables/CV_DOXYGEN_1_6_2/doxygen_1.6.2 ; export CV_DOXYGEN_1_6_2
-CV_GCC_4_5_3=/usr/bin/gcc-4.5 ; export CV_GCC_4_5_3
+CV_GCC_4_5_3=/mnt/hgfs/test/RiCRiPInt/SDK_framework/linux/CV_variables/CV_DOXYGEN_1_6_2/doxygen_1.6.2; export CV_GCC_4_5_3
 CV_GCC_4_5_3_CPLUSPLUS=/usr/bin/g++-4.5 ; export CV_GCC_4_5_3_CPLUSPLUS
 CV_GCC_4_5_3_CPP=/usr/bin/cpp-4.5 ; export CV_GCC_4_5_3_CPP
 CV_GRAPHVIZ_2=/mnt/hgfs/test/RiCRiPInt/SDK_framework/linux/CV_variables/CV_GRAPHVIZ_2 ; export CV_GRAPHVIZ_2
