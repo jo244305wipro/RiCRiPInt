@@ -1,0 +1,2 @@
+Depends-C <./uri>hqnuri.c : hqnuri.h std.h hqmemcmp.h hqmemcpy.h : ./uri/src : ./uri ./standard : C-ExportDirectories ; 
+Depends-C <./uri>hqnuri-3986.c : hqnuri.h std.h hqmemcmp.h hqmemcpy.h : ./uri/src : ./uri ./standard : C-ExportDirectories ; 

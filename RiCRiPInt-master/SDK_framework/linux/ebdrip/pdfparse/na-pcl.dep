@@ -1,0 +1,2 @@
+Depends-C <./pdfparse>pdfparse.c : pdfparse.h hqmemcmp.h hqmemcpy.h : ./pdfparse/src : ./pdfparse ./standard : C-ExportDirectories ; 
+Depends-C ./pdfparse/export/pdfparse.h : std.h : ./pdfparse/src : ./pdfparse ./standard : C-ExportDirectories ; 

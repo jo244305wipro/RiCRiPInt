@@ -1,0 +1,8 @@
+Depends-C <./customer>custlib.c : custlib.h product.h security.h copyrite.h customer.h : ./customer/src : ./customer ./ebdrip ./customer ./coreskin ./coreutil ./fwos ./standard ./core : C-ExportDirectories ; 
+Depends-C ./customer/export/custlib.h : std.h extscrty.h : ./customer/src : ./customer ./ebdrip ./customer ./coreskin ./coreutil ./fwos ./standard ./core : C-ExportDirectories ; 
+Depends-C ./core/interface/security/extscrty.h : ripcall.h std.h : ./customer/src : ./customer ./ebdrip ./customer ./coreskin ./coreutil ./fwos ./standard ./core : C-ExportDirectories ; 
+Depends-C ./ebdrip/export/product.h : std.h swvalues.h : ./customer/src : ./customer ./ebdrip ./customer ./coreskin ./coreutil ./fwos ./standard ./core : C-ExportDirectories ; 
+Depends-C ./core/interface/control/swvalues.h : hqtypes.h : ./customer/src : ./customer ./ebdrip ./customer ./coreskin ./coreutil ./fwos ./standard ./core : C-ExportDirectories ; 
+Depends-C ./core/interface/security/security.h : extscrty.h : ./customer/src : ./customer ./ebdrip ./customer ./coreskin ./coreutil ./fwos ./standard ./core : C-ExportDirectories ; 
+Depends-C <./customer>motifres.c : motifres.h customer.h ripversn.h icon.h logo.h : ./customer/src : ./customer ./ebdrip ./customer ./coreskin ./coreutil ./fwos ./standard ./core : C-ExportDirectories ; 
+Depends-C ./customer/export/motifres.h : product.h : ./customer/src : ./customer ./ebdrip ./customer ./coreskin ./coreutil ./fwos ./standard ./core : C-ExportDirectories ; 

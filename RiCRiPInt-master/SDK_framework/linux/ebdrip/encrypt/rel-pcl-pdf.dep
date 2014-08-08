@@ -1,0 +1,3 @@
+Depends-C <./encrypt>hqcrypt.c : std.h hqcrypt.h : ./encrypt/src : ./encrypt ./standard ./openssl : C-ExportDirectories ; 
+Depends-C <./encrypt>oemcrypt.c : std.h oemcrypt.h : ./encrypt/src : ./encrypt ./standard ./openssl : C-ExportDirectories ; 
+Depends-C <./encrypt>cryptify.c : std.h hqcrypt.h : ./encrypt/src : ./encrypt ./standard ./openssl : C-ExportDirectories ; 

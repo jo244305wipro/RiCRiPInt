@@ -1,0 +1,6 @@
+Depends-C <./le-security>lesec.c : lesec.h lesecint.h dongle.h security.h timebomb.h genkey.h swstart.h hqmd5.h lesecgen.h mpscmvff.h : ./le-security/src : ./ebdrip ./le-security ./standard ./core ./encrypt ./mps ./security : C-ExportDirectories ; 
+Depends-C ./le-security/export/lesec.h : std.h mps.h ripcall.h : ./le-security/src : ./ebdrip ./le-security ./standard ./core ./encrypt ./mps ./security : C-ExportDirectories ; 
+Depends-C ./le-security/export/lesecint.h : product.h : ./le-security/src : ./ebdrip ./le-security ./standard ./core ./encrypt ./mps ./security : C-ExportDirectories ; 
+Depends-C ./le-security/export/lesecgen.h : std.h : ./le-security/src : ./ebdrip ./le-security ./standard ./core ./encrypt ./mps ./security : C-ExportDirectories ; 
+Depends-C <./le-security>lesecgen.c : lesecgen.h hqmemcpy.h hqrc4.h hqwindows.h : ./le-security/src : ./ebdrip ./le-security ./standard ./core ./encrypt ./mps ./security : C-ExportDirectories ; 
+Depends-C <./le-security>lesecgen.c : lesecgen.h hqmemcpy.h hqrc4.h hqwindows.h : ./le-security/src : ./ebdrip ./le-security ./standard ./core ./encrypt ./mps ./security : C-ExportDirectories ; 

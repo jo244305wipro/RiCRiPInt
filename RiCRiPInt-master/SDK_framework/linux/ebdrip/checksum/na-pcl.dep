@@ -1,0 +1,2 @@
+Depends-C <./checksum>csumrc.c : std.h hqcrc.h : ./checksum/src : ./checksum ./standard : C-ExportDirectories ; 
+Depends-C ./checksum/export/hqcrc.h : std.h : ./checksum/src : ./checksum ./standard : C-ExportDirectories ; 

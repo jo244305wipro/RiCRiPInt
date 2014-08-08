@@ -1,0 +1,14 @@
+BitsPerComponent
+ColorSpace
+DataSource
+DeviceGray
+DeviceRGB
+EmbeddedICCProfile
+Height
+ImageType
+InterleaveType
+MultipleDataSources
+PreMult
+Width
+XResolution
+YResolution

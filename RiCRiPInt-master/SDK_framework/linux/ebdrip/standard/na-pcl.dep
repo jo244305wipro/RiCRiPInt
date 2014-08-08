@@ -1,0 +1,10 @@
+Depends-C <./standard>hq32x2.c : std.h : ./standard/src ./standard/unix/src : ./standard : C-ExportDirectories ; 
+Depends-C <./standard>hqassert.c : std.h hqcstass.h hqspin.h : ./standard/src ./standard/unix/src : ./standard : C-ExportDirectories ; 
+Depends-C ./standard/export/hqcstass.h : hqncall.h : ./standard/src ./standard/unix/src : ./standard : C-ExportDirectories ; 
+Depends-C <./standard>hqexcept.c : std.h : ./standard/src ./standard/unix/src : ./standard : C-ExportDirectories ; 
+Depends-C <./standard>hqmemcmp.c : std.h hqmemcmp.h : ./standard/src ./standard/unix/src : ./standard : C-ExportDirectories ; 
+Depends-C <./standard>hqmemcpy.c : hqmemcpy.h caching.h : ./standard/src ./standard/unix/src : ./standard : C-ExportDirectories ; 
+Depends-C <./standard>hqmemset.c : hqmemset.h caching.h : ./standard/src ./standard/unix/src : ./standard : C-ExportDirectories ; 
+Depends-C <./standard>hqstr.c : hqstr.h : ./standard/src ./standard/unix/src : ./standard : C-ExportDirectories ; 
+Depends-C <./standard>hqosarch.c : std.h hqosarch.h : ./standard/src ./standard/unix/src : ./standard : C-ExportDirectories ; 
+Depends-C <./standard>hostplat.c : hqosarch.h : ./standard/src ./standard/unix/src : ./standard : C-ExportDirectories ; 

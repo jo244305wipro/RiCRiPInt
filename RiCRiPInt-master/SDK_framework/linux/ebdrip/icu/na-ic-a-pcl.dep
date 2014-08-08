@@ -1,0 +1,1 @@
+Depends-C <./icu/obj/c_src/na-ic-a-pcl/gcc_4_5_3/misc>icudt34_dat.c : std.h : ./icu/common ./icu/stubdata ./icu/i18n ./icu/export : ./icu ./standard : C-ExportDirectories ; 

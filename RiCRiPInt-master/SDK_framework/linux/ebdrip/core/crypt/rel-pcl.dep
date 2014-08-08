@@ -1,0 +1,1 @@
+Depends-C <./core/crypt>cryptinit.c : core.h swstart.h coreinit.h cryptinit.h hqxcrypt.h morisawa.h : ./core/shared ./core/crypt/src : ./libgenxml ./libpng ./md5 ./mps ./rdrevent ./security ./standard ./threads ./timeline ./timer ./uri ./zlib ./core ./core/errors ./core/mm ./core/types ./core/crypt ./core/crypt/hqx ./core/morisawa : C-ExportDirectories ; 

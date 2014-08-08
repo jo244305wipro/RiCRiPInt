@@ -1,0 +1,14 @@
+Depends-C <./libgenxml>xmlg.c : mps.h xmlgpriv.h : ./libgenxml/src : ./libgenxml ./standard ./unicode ./uri ./mps ./libgenxml/libexpat : C-ExportDirectories ; 
+Depends-C ./libgenxml/src/xmlgpriv.h : hqnuri.h xmlgtype.h xmlgassert.h xmlgattrspriv.h xmlgnsblockpriv.h xmlgfunctablepriv.h xmlginternpriv.h xmlgfilterpriv.h xmlgfilterchainpriv.h xmlg.h : ./libgenxml/src : ./libgenxml ./standard ./unicode ./uri ./mps ./libgenxml/libexpat : C-ExportDirectories ; 
+Depends-C ./libgenxml/src/xmlgassert.h : std.h : ./libgenxml/src : ./libgenxml ./standard ./unicode ./uri ./mps ./libgenxml/libexpat : C-ExportDirectories ; 
+Depends-C ./libgenxml/src/xmlgattrspriv.h : xmlgattrs.h : ./libgenxml/src : ./libgenxml ./standard ./unicode ./uri ./mps ./libgenxml/libexpat : C-ExportDirectories ; 
+Depends-C ./libgenxml/src/xmlgnsblockpriv.h : xmlgtype.h : ./libgenxml/src : ./libgenxml ./standard ./unicode ./uri ./mps ./libgenxml/libexpat : C-ExportDirectories ; 
+Depends-C ./libgenxml/src/xmlginternpriv.h : xmlgintern.h : ./libgenxml/src : ./libgenxml ./standard ./unicode ./uri ./mps ./libgenxml/libexpat : C-ExportDirectories ; 
+Depends-C <./libgenxml>xmlgnsblock.c : xmlgpriv.h xmlgnsblockpriv.h xmlginternpriv.h xmlgassert.h : ./libgenxml/src : ./libgenxml ./standard ./unicode ./uri ./mps ./libgenxml/libexpat : C-ExportDirectories ; 
+Depends-C <./libgenxml>xmlgattrs.c : hqunicode.h xmlgassert.h xmlgattrspriv.h xmlgpriv.h : ./libgenxml/src : ./libgenxml ./standard ./unicode ./uri ./mps ./libgenxml/libexpat : C-ExportDirectories ; 
+Depends-C <./libgenxml>xmlgfunctable.c : xmlgpriv.h xmlgassert.h xmlgfunctablepriv.h xmlginternpriv.h : ./libgenxml/src : ./libgenxml ./standard ./unicode ./uri ./mps ./libgenxml/libexpat : C-ExportDirectories ; 
+Depends-C <./libgenxml>xmlgintern.c : xmlgwarnings.h xmlgpriv.h xmlginternpriv.h xmlgassert.h : ./libgenxml/src : ./libgenxml ./standard ./unicode ./uri ./mps ./libgenxml/libexpat : C-ExportDirectories ; 
+Depends-C <./libgenxml>xmlgfilterchain.c : xmlg.h xmlgpriv.h xmlginternpriv.h xmlgfilterpriv.h xmlgfilterchainpriv.h : ./libgenxml/src : ./libgenxml ./standard ./unicode ./uri ./mps ./libgenxml/libexpat : C-ExportDirectories ; 
+Depends-C <./libgenxml>xmlgfilter.c : xmlg.h xmlgpriv.h xmlginternpriv.h xmlgfilterpriv.h xmlgfilterchainpriv.h : ./libgenxml/src : ./libgenxml ./standard ./unicode ./uri ./mps ./libgenxml/libexpat : C-ExportDirectories ; 
+Depends-C <./libgenxml>gexpat.c : hqnuri.h xmlgattrspriv.h xmlgfunctablepriv.h gexpat.h : ./libgenxml/src : ./libgenxml ./standard ./unicode ./uri ./mps ./libgenxml/libexpat : C-ExportDirectories ; 
+Depends-C ./libgenxml/src/gexpat.h : xmlgpriv.h : ./libgenxml/src : ./libgenxml ./standard ./unicode ./uri ./mps ./libgenxml/libexpat : C-ExportDirectories ; 

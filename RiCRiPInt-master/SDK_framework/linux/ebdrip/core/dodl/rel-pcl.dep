@@ -1,0 +1,1 @@
+Depends-C <./core/dodl>dlinit.c : core.h coreinit.h swstart.h dlinit.h display.h dl_purge.h shadex.h : ./core/shared ./core/dodl/src : ./libgenxml ./libpng ./md5 ./mps ./rdrevent ./security ./standard ./threads ./timeline ./timer ./uri ./zlib ./core ./core/errors ./core/mm ./core/types ./core/dodl ./core/gstate ./core/objects ./core/v20 : C-ExportDirectories ; 

@@ -1,0 +1,1 @@
+Depends-C <./calibration>nocalibration.c : std.h : ./calibration/src : ./calibration ./core ./fwos ./pic ./piu ./rdrevent ./standard ./timeline : C-ExportDirectories ; 

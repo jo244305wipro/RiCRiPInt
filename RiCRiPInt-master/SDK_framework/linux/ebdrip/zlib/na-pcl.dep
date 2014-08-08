@@ -1,0 +1,14 @@
+Depends-C <./zlib>adler32.c : zlib.h : ./zlib/src : ./zlib : C-ExportDirectories ; 
+Depends-C <./zlib>compress.c : zlib.h : ./zlib/src : ./zlib : C-ExportDirectories ; 
+Depends-C <./zlib>crc32.c : zutil.h crc32.h : ./zlib/src : ./zlib : C-ExportDirectories ; 
+Depends-C ./zlib/src/zutil.h : zlib.h : ./zlib/src : ./zlib : C-ExportDirectories ; 
+Depends-C <./zlib>deflate.c : deflate.h : ./zlib/src : ./zlib : C-ExportDirectories ; 
+Depends-C ./zlib/src/deflate.h : zutil.h : ./zlib/src : ./zlib : C-ExportDirectories ; 
+Depends-C <./zlib>gzio.c : zutil.h : ./zlib/src : ./zlib : C-ExportDirectories ; 
+Depends-C <./zlib>infback.c : zutil.h inftrees.h inflate.h inffast.h inffixed.h : ./zlib/src : ./zlib : C-ExportDirectories ; 
+Depends-C <./zlib>inffast.c : zutil.h inftrees.h inflate.h inffast.h : ./zlib/src : ./zlib : C-ExportDirectories ; 
+Depends-C <./zlib>inflate.c : zutil.h inftrees.h inflate.h inffast.h inffixed.h : ./zlib/src : ./zlib : C-ExportDirectories ; 
+Depends-C <./zlib>inftrees.c : zutil.h inftrees.h : ./zlib/src : ./zlib : C-ExportDirectories ; 
+Depends-C <./zlib>trees.c : deflate.h trees.h : ./zlib/src : ./zlib : C-ExportDirectories ; 
+Depends-C <./zlib>uncompr.c : zlib.h : ./zlib/src : ./zlib : C-ExportDirectories ; 
+Depends-C <./zlib>zutil.c : zutil.h : ./zlib/src : ./zlib : C-ExportDirectories ; 

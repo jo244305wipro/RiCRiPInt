@@ -1,0 +1,1 @@
+Depends-C <./libjpeg-turbo>nolibjpegturbo.c : std.h libjpegturbo.h : ./libjpeg-turbo/src : ./libjpeg-turbo ./standard : C-ExportDirectories ; 

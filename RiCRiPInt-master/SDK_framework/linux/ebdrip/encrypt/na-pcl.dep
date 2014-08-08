@@ -1,0 +1,2 @@
+Depends-C <./encrypt>hqcrypt.c : std.h hqcrypt.h : ./encrypt/src : ./encrypt ./standard ./openssl : C-ExportDirectories ; 
+Depends-C <./encrypt>hqpki.c : openssl/bio.h openssl/err.h openssl/pkcs7.h openssl/pem.h openssl/pkcs12.h std.h hqmemcpy.h hqpki.h : ./encrypt/src : ./encrypt ./standard ./openssl : C-ExportDirectories ; 

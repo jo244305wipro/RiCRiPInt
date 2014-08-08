@@ -1,0 +1,10 @@
+Depends-C <.>pdfdiff.c : zlib.h : : ./customer . ./zlib : C-ExportDirectories ; 
+Depends-C ./zlib/export/zlib.h : zconf.h zlib_redefs.h : : ./customer . ./zlib : C-ExportDirectories ; 
+Depends-C <.>pdfdiff2.c : pdfImage.h pdfImageWriter.h pdfImageComparer.h : : ./customer . ./zlib : C-ExportDirectories ; 
+Depends-C ./testsrc/pdfImage.h : zlib.h pdfUtil.h : : ./customer . ./zlib : C-ExportDirectories ; 
+Depends-C ./testsrc/pdfImageWriter.h : zlib.h pdfUtil.h : : ./customer . ./zlib : C-ExportDirectories ; 
+Depends-C ./testsrc/pdfImageComparer.h : pdfImage.h : : ./customer . ./zlib : C-ExportDirectories ; 
+Depends-C <.>pdfImage.c : pdfImage.h : : ./customer . ./zlib : C-ExportDirectories ; 
+Depends-C <.>pdfImageWriter.c : pdfImageWriter.h : : ./customer . ./zlib : C-ExportDirectories ; 
+Depends-C <.>pdfImageComparer.c : pdfImageComparer.h pdfImageWriter.h : : ./customer . ./zlib : C-ExportDirectories ; 
+Depends-C <.>pdfUtil.c : pdfUtil.h : : ./customer . ./zlib : C-ExportDirectories ; 

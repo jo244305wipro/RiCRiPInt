@@ -1,0 +1,367 @@
+/* Copyright (C) 2005-2013 Global Graphics Software Ltd. All rights reserved.
+ *
+ * This example is provided on an "as is" basis and without
+ * warranty of any kind. Global Graphics Software Ltd. does not
+ * warrant or make any representations regarding the use or results
+ * of use of this example.
+ *
+ * $HopeName: SWebd_OIL_example_gg!src:gwid_eventhandle.c(EBDSDK_P.1) $
+ *
+ */
+/*! \file
+ *  \ingroup OIL
+ *  \brief Implementation of the event handling functions.
+ *
+ * This file contains the definitions of the functions which does event handling 
+ * for registered events that occurs in GPS.
+ *
+ */
+
+/**
+ * \brief  this function is a common Event handler for all GPS events
+ *
+ * GPS events
+ */
+
+#include "gwid_eventhandle.h"
+
+ 
+  int		job_hostid_in = -1;	
+  int		job_hostid_out = -1;	
+  int       jobid;
+ extern int g_jobAvailable;
+
+  //static gwmsg_client_t gpsClient;
+  extern gwmsg_client_t *gps_client;
+
+
+#if 0
+int  Get_Data_From_GPS(int hostid_in, int hostid_out,int jobid)
+{
+    int GPSGetPaperInfoRetVal;
+    int GPSPdlTableval;
+    int GPSGetPrtStatus2val;
+    int gps_notify=0;
+    int ret;
+    int GPSBitSWRetVal = 0;
+    int GPSGetModelInfoRetVal;
+    int GPSGetHddInfo2RetVal;
+    int GPSPlotPrepRetVal;
+    int GPSPlotOpenRetVal;
+
+    long pdl_offset; int pdl_num ;
+    int prt_res;
+    int hdd_status;
+    char * modelinfovalue;
+    simhandle_t *hsim;
+    gps_hostbuf_p host_inBuff, host_outBuff;
+    gps_prtstatus2_t prtStatus;
+    varvalue_t gps_paperId;
+    gps_hddinfo2_t hddinfo;	
+    gps_plotprepareparam_t plotPrepare;
+
+
+    if ((hsim = __gps_getsimhandle()) == (simhandle_t *)0)
+		return(-1);
+
+
+    /************************** Call to gpsGetPaperInfo() *************************/
+    
+    ret = _var_getbyname(hsim, "GPS_PENV_VAR_ID_APLPAGESIZE", &gps_paperId);
+       
+    GPSGetPaperInfoRetVal = GPS_GetPaperInfo(gps_client, gps_paperId, &gpsPaperInfo, gps_notify);
+	
+	if(GPSGetPaperInfoRetVal)
+		{
+			printf("GPS_GetPaperInfo : SUCCESS\n");
+		}
+		else
+		{
+			printf("GPS_GetPaperInfo : FAILED\n");
+		}	
+    /*************Call to gpsInterpNotifyState()*************************************/
+        GPS_InterpNotifyState(gps_client, GPS_INTERP_STATE_PROCESSING);
+    
+    /*************Call to gpsSinOpen*************************************************/
+    
+    host_inBuff = GPS_SinOpen(gps_client, hostid_in);
+	if(host_inBuff)
+	{
+		printf("GPS_SinOpen : Successful\n");
+	}
+	else
+	{
+		printf("GPS_SinOpen : Failed\n");
+	}
+
+  /*************Call to gpsSoutOpen*************************************************/
+
+    host_outBuff = GPS_SoutOpen(gps_client, hostid_out);
+	if(host_outBuff)
+	{
+		printf("GPS_SoutOpen : Successful\n");
+	}
+	else
+	{
+		printf("GPS_SoutOpen : Failed\n");
+	}
+
+    /*************Call to gpsGetBitSw*************************************************/
+
+    GPSBitSWRetVal = GPS_GetBitSw(gps_client,BIT_SW_004); /* bit number randomly given as BIT_SW_004 */
+	
+    if((GPSBitSWRetVal = BIT_SW_001) || (GPSBitSWRetVal <= BIT_SW_016))
+		printf("GPS_getBitSW is success\n");
+	else
+		printf("GPS_getBitSW is failed\n");
+
+     /*************Call to gpsPdlTable*************************************************/
+
+    GPSPdlTableval = GPS_GetPdlTable(gps_client, &pdl_offset, &pdl_num);
+	if(!GPSPdlTableval)
+	{
+		printf("GetPdlTable : Successful\n");
+	}
+
+     /*************Call to gpsPrtStatus2*************************************************/
+    
+    GPSGetPrtStatus2val = GPS_GetPrtStatus2(gps_client, &prtStatus, gps_notify, &prt_res);
+	if(GPSGetPrtStatus2val)
+	{
+		printf("GetPrtStatus2 : Success\n");
+	}
+
+	/*************Call to gpsGetModelInfo*************************************************/
+
+    GPSGetModelInfoRetVal = GPS_GetModelInfo(gps_client, 0, 1,	"color_prm_val", "COLOR", 32, modelinfovalue);
+	if(GPSGetModelInfoRetVal== 0)
+	     printf("GPS_GetModelInfo: Search Successful\n");
+	else
+	     printf("GPS_GetModelInfo: Search Failed\n"); 
+    /*Either key or category not found, buffer overflow, illegal param, init error */
+
+    /*************Call to gpsGetHddInfo2*************************************************/
+
+
+	GPSGetHddInfo2RetVal = GPS_gpsGetHddInfo2( gps_client, GPS_HDD_TMP, hdd_status, hddinfo );
+	
+    if(GPSGetHddInfo2RetVal)
+		printf("GPS_gpsGetHddInfo2 is success\n");
+	else 
+	    printf("GPS_gpsGetHddInfo2 is failed\n");
+
+    /*************Call to gpsPlotPrepare*************************************************/
+	
+	GPSPlotPrepRetVal = GPS_PlotPrepare(gps_client,jobid, &plotPrepare);
+	if(GPSPlotPrepRetVal)
+	{
+		printf("GPS_PlotPrepare : Success\n");
+	}
+	else 
+	{
+		printf("GPS_PlotPrepare : Failed\n");
+	}
+
+    /*************Call to gpsPlotOpen*************************************************/
+
+	GPSPlotOpenRetVal = GPS_PlotOpen(gps_client, jobid, GPS_PLOT_NORMAL);
+	if(GPSPlotOpenRetVal >= 0)
+	{
+		printf("GPS_PlotOpen : Success\n");
+	}
+	else
+	{
+		printf("GPS_PlotOpen : Failed\n");
+	}
+
+        return 0;
+
+
+}
+
+#endif
+void Get_Env_var_From_GPS()
+{
+
+    unsigned long offset = 0;
+    int GPS_GetPdlPrintConditionShmRetVal;
+    int GPSPenvOpenretval;
+    int status;
+    int retGPSPenvGetVal;
+    int GPSPenvGetDefListRetVal;
+    long penv_val;
+    long gps_value;
+    int job_id ; //= g_pstCurrentJob->uJobId;
+    
+    /*************Call to gpsPmDispSetEmulation***********************************************/
+     GPS_PmDispSetEmulation(SET_DISP, SET_DISP, SET_DISP, "PCL5e");
+
+     /*************Call to gpsGetPdlPrintCondtionShm*******************************************/
+
+     GPS_GetPdlPrintConditionShmRetVal = GPS_GetPdlPrintConditionShm(gps_client,job_id,&status, &offset);
+	if(GPS_GetPdlPrintConditionShmRetVal)
+		{
+			printf("GPS_GetPdlPrintConditionShm : SUCCESS\n");
+		}
+		else
+		{
+			printf("GPS_GetPdlPrintConditionShm : FAILED\n");
+		}
+
+      /*************Call to gpsPenvOpen*******************************************/
+
+       GPSPenvOpenretval = GPS_PenvOpen( gps_client, GPS_PENV_NAME_COMMON, strlen(GPS_PENV_NAME_COMMON)+1);
+	
+    if(GPSPenvOpenretval == PENV_HANDLER)
+		     printf("GPS_PenvOpen: SUCCESS\n");
+    else 
+             printf("GPS_PenvOpen: FAILED\n");
+
+     
+     /*************Call to gpsPenvGetDefValue*******************************************/
+
+    GPSPenvGetDefListRetVal = GPS_PenvGetDefValue(gps_client, GPSPenvOpenretval,DI_ENV_VAR_ID_COPIES , &gps_value);
+
+	if(GPSPenvGetDefListRetVal >= 0)
+		{
+			printf("Environment Def List: success\n");
+		}
+		else
+		{
+			printf("Environment Def List: failed\n");
+		}
+
+     /*************Call to gpsPenvGetValue*******************************************/
+
+    retGPSPenvGetVal = GPS_PenvGetValue( gps_client, GPSPenvOpenretval,DI_ENV_VAR_ID_COPIES , &penv_val );
+	
+    if(retGPSPenvGetVal < 0)
+	     printf("GPS_PenvGetValue: FAILED\n");
+	else
+        printf("GPS_PenvGetValue: SUCCESS\n"); 
+
+ /*************Call to gpsPenvGetDefValue*******************************************/
+        GPS_PenvClose(gps_client, GPSPenvOpenretval);
+
+}
+void GWID_Event_Handler(void *cl, gwmsg_t *m)
+{
+	Bool Jobstatus;
+   
+	
+    switch(m->type)
+    {
+        case GWID_GpsEv_Req_Proc_Data: 
+		                	printf("\n ******************************************************\n");				
+							printf("\n gpsOpen Job Process Request event occurred successfully.....\n");
+							printf("\n ******************************************************\n"); 		
+                            gwmsg_GpsEv_Req_Proc_Data_t	*msg;
+                            msg = ( gwmsg_GpsEv_Req_Proc_Data_t	*)m;
+                            //jobid = g_pstCurrentJob->uJobId= msg->ujobid;
+                            jobid = msg->ujobid;
+                            //g_pstCurrentJob->ePDLType = ( OIL_eTyPDLType )msg->pdl_id;
+                            job_hostid_in = msg->hostid_in;
+                            job_hostid_out = msg->hostid_out;
+
+							printf("type = %d \n", msg->type);
+							printf("length = %d \n", msg->length);
+							printf("pid = %d \n", msg->pid);
+							printf("njobid = %d \n", msg->njobid);
+							printf("ujobid = %d \n", msg->ujobid);
+							printf("host_channel = %d \n", msg->host_channel);
+							printf("hostid_in = %d \n", msg->hostid_in);
+							printf("hostid_out = %d \n", msg->hostid_out);
+							printf("pdl_id = %d \n", msg->pdl_id);
+							printf("do_cancel = %d \n", msg->do_cancel);
+							printf("uswitch = %d \n", msg->uswitch);
+							printf("reason = %d \n", msg->reason);
+
+                            /*Get_Data_From_GPS(hostid_in,hostid_out,jobid); */
+                            Get_Env_var_From_GPS();
+                            g_jobAvailable=1;
+                            //Jobstatus=PMS_Process_Job();
+			                break;
+
+		case GWID_GpsEv_Req_Cancel_Data: 
+							printf("\n ******************************************************\n");				
+							printf("\n gpsOpen Job Cancel Request event occurred successfully.....\n");
+							printf("\n ******************************************************\n");		
+                            break;
+		case GWID_GpsEv_Notify_Offline: 
+							printf("\n ******************************************************\n");				
+							printf("\n gpsOpen Notifies offline to PDL event occurred successfully.....\n");
+							printf("\n ******************************************************\n");		
+							break;
+		case GWID_GpsEv_Notify_Online: 
+							printf("\n ******************************************************\n");				
+							printf("\n gpsOpen Notifies online to PDL event occurred successfully.....\n");
+							printf("\n ******************************************************\n");
+							break;
+		case GWID_GpsEv_Req_Exit: 
+							printf("\n ******************************************************\n");				
+							printf("\n gpsOpen Requests to terminate PDL event occurred successfully.....\n");
+							printf("\n ******************************************************\n");		
+                            break;		
+		case GWID_GpsEv_Req_Testprint: 
+							printf("\n ******************************************************\n");				
+							printf("\n gpsOpen Requests to print a test page event occurred successfully.....\n");
+							printf("\n ******************************************************\n");		
+                            break;
+		case GWID_gpsColor_gamReq: 
+							printf("\n ******************************************************\n");				
+							printf("\n gpsOpen Requests to recalculate gamma data event occurred successfully.....\n");
+							printf("\n ******************************************************\n");		
+                            break;
+		case GWID_GpsEv_TrayInfo: 
+							printf("\n ******************************************************\n");				
+							printf("\n gpsOpen Notifies the change of input tray information event occurred successfully.....\n");
+							printf("\n ******************************************************\n");		
+                            break;
+		case GWID_GpsEv_BinInfo: 
+							printf("\n ******************************************************\n");				
+							printf("\n gpsOpen Notifies the change of output bin information event occurred successfully.....\n");
+							printf("\n ******************************************************\n");		
+                            break;
+		case GWID_GpsEv_Req_Exit_Paper: 
+							printf("\n ******************************************************\n");				
+							printf("\n gpsOpen Form feed request event occurred successfully.....\n");
+							printf("\n ******************************************************\n");		
+                            break;
+		case GWID_GpsEv_Req_PclFontCount: 
+							printf("\n ******************************************************\n");				
+							printf("\n gpsOpen Requests to provide information on Font Count event occurred successfully.....\n");
+							printf("\n ******************************************************\n");		
+                            break;
+		case GWID_GpsEv_PrtStatus: 
+							printf("\n ******************************************************\n");				
+							printf("\n gpsOpen Notifies the change of information on Printer status event occurred successfully.....\n");
+							printf("\n ******************************************************\n");		
+                            break;
+		case GWID_GpsEv_Interp_Pause_Req: 
+							printf("\n ******************************************************\n");				
+							printf("\n gpsOpen Requests to pause processing event occurred successfully.....\n");
+							printf("\n ******************************************************\n");		
+                            break;
+		case GWID_GpsEv_Interp_Resume_Req: 
+							printf("\n ******************************************************\n");				
+							printf("\n gpsOpen Requests to resume processing event occurred successfully.....\n");
+							printf("\n ******************************************************\n");		
+                            break;
+		case GWID_GpsEv_Req_Program: 
+							printf("\n ******************************************************\n");				
+							printf("\n gpsOpen Requests operation related to program event occurred successfully.....\n");
+							printf("\n ******************************************************\n");		
+                            break;
+		case GWID_GpsEv_Notify_Prime_Reset: 
+							printf("\n ******************************************************\n");				
+							printf("\n gpsOpen Notifies prime reset event occurred successfully.....\n");
+							printf("\n ******************************************************\n");		
+                            break;
+		case GWID_GpsEv_Auth_Res: 		
+							printf("\n gpsOpen Notifies authentication result event occurred successfully.....\n");		
+                            break;
+		case GWID_GpsPage_TrayRequest2_Res: 			
+							printf("\n gpsOpen Notifies tray request result event occurred successfully.....\n");	
+                            break;
+    }
+}

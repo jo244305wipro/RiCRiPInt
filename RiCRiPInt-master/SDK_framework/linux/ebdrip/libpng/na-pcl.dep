@@ -1,0 +1,10 @@
+Depends-C <./libpng>png.c : png.h : ./libpng/src : ./libpng ./zlib : C-ExportDirectories ; 
+Depends-C <./libpng>pngerror.c : png.h : ./libpng/src : ./libpng ./zlib : C-ExportDirectories ; 
+Depends-C <./libpng>pngget.c : png.h : ./libpng/src : ./libpng ./zlib : C-ExportDirectories ; 
+Depends-C <./libpng>pngmem.c : png.h : ./libpng/src : ./libpng ./zlib : C-ExportDirectories ; 
+Depends-C <./libpng>pngread.c : png.h : ./libpng/src : ./libpng ./zlib : C-ExportDirectories ; 
+Depends-C <./libpng>pngrio.c : png.h : ./libpng/src : ./libpng ./zlib : C-ExportDirectories ; 
+Depends-C <./libpng>pngrtran.c : png.h : ./libpng/src : ./libpng ./zlib : C-ExportDirectories ; 
+Depends-C <./libpng>pngrutil.c : png.h : ./libpng/src : ./libpng ./zlib : C-ExportDirectories ; 
+Depends-C <./libpng>pngset.c : png.h : ./libpng/src : ./libpng ./zlib : C-ExportDirectories ; 
+Depends-C <./libpng>pngtrans.c : png.h : ./libpng/src : ./libpng ./zlib : C-ExportDirectories ; 

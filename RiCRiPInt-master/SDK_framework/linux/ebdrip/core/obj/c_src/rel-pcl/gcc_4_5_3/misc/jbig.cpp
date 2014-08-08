@@ -1,0 +1,2 @@
+JBIG2Globals
+debug_jbig2

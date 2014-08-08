@@ -1,0 +1,1 @@
+Depends-C <./core/morisawa>nomsawa.c : core.h morisawa.h : ./core/shared ./core/morisawa/src : ./customer ./libgenxml ./libpng ./md5 ./mps ./rdrevent ./security ./standard ./threads ./timeline ./timer ./uri ./zlib ./core ./core/errors ./core/mm ./core/types ./core/morisawa : C-ExportDirectories ; 

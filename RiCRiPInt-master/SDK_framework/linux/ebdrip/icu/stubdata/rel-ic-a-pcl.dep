@@ -1,0 +1,1 @@
+Depends-C <./icu/stubdata>stubdata.c : unicode/utypes.h unicode/udata.h unicode/uversion.h : ./icu/common ./icu/stubdata ./icu/i18n ./icu/export : ./standard ./icu/stubdata : C-ExportDirectories ; 
